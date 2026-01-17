@@ -16,9 +16,6 @@ const Footer = () => {
             <p className="text-sm text-gray-400 leading-relaxed mb-6">
               Empowering the next generation of financial leaders with tools, community, and knowledge.
             </p>
-            <p className="text-xs text-gray-500">
-              © 2024 CA Monk. All rights reserved.
-            </p>
           </div>
 
           {/* Resources Column */}
@@ -95,14 +92,17 @@ const Footer = () => {
         </div>
 
         {/* Bottom Links */}
-        <div className="border-t border-gray-800 pt-6 flex flex-col sm:flex-row justify-end items-center gap-4">
-          <div className="flex gap-6">
-            <a href="#" className="text-xs text-gray-500 hover:text-white transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="text-xs text-gray-500 hover:text-white transition-colors">
-              Terms of Service
-            </a>
+        <div className="border-t border-gray-800 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p className="text-xs text-gray-500">
+                © 2024 CA Monk. All rights reserved.
+            </p>
+            <div className="flex gap-6">
+                <a href="#" className="text-xs text-gray-500 hover:text-white transition-colors">
+                Privacy Policy
+                </a>
+                <a href="#" className="text-xs text-gray-500 hover:text-white transition-colors">
+                Terms of Service
+                </a>
           </div>
         </div>
       </div>
