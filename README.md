@@ -33,7 +33,7 @@ A modern, responsive blog application built with React, TypeScript, TanStack Que
 
 ## 📦 Technologies Used
 
-- **React 18** - Modern React with hooks
+- **React 18+** - Modern React with hooks
 - **TypeScript** - Type-safe development
 - **Vite** - Lightning-fast build tool
 - **TanStack Query** - Server state management
@@ -52,7 +52,7 @@ A modern, responsive blog application built with React, TypeScript, TanStack Que
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Prince-695/frontend-Interview-camonk.git
    cd frontend-Interview-camonk
    ```
 
@@ -66,12 +66,16 @@ A modern, responsive blog application built with React, TypeScript, TanStack Que
 3. **Start the JSON Server (Backend API)**
    ```bash
    npm run server
+   # or
+   bun run server
    ```
    The API will run on `http://localhost:3001`
 
 4. **Start the Development Server (in a new terminal)**
    ```bash
    npm run dev
+   # or 
+   bun dev
    ```
    The app will run on `http://localhost:5173`
 
@@ -160,17 +164,6 @@ src/
 }
 ```
 
-## 🚀 Future Enhancements
-
-- Search and filter functionality
-- Blog editing and deletion
-- User authentication
-- Comments system
-- Social media sharing
-- Dark mode support
-- Pagination or infinite scroll
-- Blog categories page
-
 ## 📄 License
 
 This project was created as part of the CA Monk frontend development assignment.
@@ -178,12 +171,3 @@ This project was created as part of the CA Monk frontend development assignment.
 ---
 
 **Built with ❤️ using React, TypeScript, and modern web technologies**
-
-**What should I use for styling?**  
-Use **Tailwind CSS** and **shadcn/ui** for styling. You are expected to install, configure, and use both Tailwind CSS and shadcn/ui components in your implementation.
-
-**Have more questions?**  
-If you have any additional doubts, feel free to reach out at: `developer@camonk.com`.
-
-
-Good luck! 🚀
