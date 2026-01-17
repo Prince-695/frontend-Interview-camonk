@@ -75,7 +75,7 @@ export default function CreateBlogForm() {
       category: selectedCategories,
       description,
       date: new Date().toISOString(),
-      coverImage: coverImage || '/avatar.png',
+      coverImage: coverImage || 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg',
       content,
     };
 
