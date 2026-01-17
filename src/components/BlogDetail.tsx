@@ -105,17 +105,17 @@ export default function BlogDetail({ blogId }: BlogDetailProps) {
         </Button>
 
         {/* Meta Info */}
-        <div className="flex gap-4 mb-8 border p-4 bg-gray-100 rounded-lg flex-row justify-center items-center">
+        <div className="flex gap-4 mb-8 p-4 bg-gray-100 rounded-lg flex-row justify-center items-center">
           <div className="flex items-center gap-2 flex-1 flex-col">
             <span className="text-sm font-medium text-gray-600 uppercase">Category</span>
             <p className='font-bold text-gray-700 text-sm'>{blog.category.join(' & ')}</p>
           </div>
-          <Separator orientation="vertical" className="h-12" />
+          <div className="h-12 w-px bg-gray-300"></div>
           <div className="flex items-center gap-2 flex-1 flex-col">
             <span className="text-sm font-medium text-gray-600 uppercase">Read Time</span>
             <p className="text-sm text-gray-700 font-bold">5 Mins</p>
           </div>
-          <Separator orientation="vertical" className="h-12" />
+          <div className="h-12 w-px bg-gray-300"></div>
           <div className="flex items-center gap-2 flex-1 flex-col">
             <span className="text-sm font-medium text-gray-600 uppercase">Date</span>
             <p className="text-sm text-gray-700 font-bold">{formatDate(blog.date)}</p>
@@ -141,7 +141,7 @@ export default function BlogDetail({ blogId }: BlogDetailProps) {
         <Separator className="my-8" />
 
         {/* Author Info */}
-        <div className="flex items-center gap-4 p-6 bg-gray-50 rounded-lg">
+        <div className="flex items-center gap-4 p-6 bg-gray-100 rounded-lg">
           <Avatar className="w-16 h-16">
             <AvatarImage src="/avatar.png" />
             <AvatarFallback>AM</AvatarFallback>

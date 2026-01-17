@@ -75,7 +75,7 @@ export default function CreateBlogForm() {
       category: selectedCategories,
       description,
       date: new Date().toISOString(),
-      coverImage: coverImage || 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg',
+      coverImage: coverImage || '/avatar.png',
       content,
     };
 
@@ -90,7 +90,7 @@ export default function CreateBlogForm() {
           <p className='-mt-0.5'>Create Blog</p>
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-white">
+      <DialogContent className="lg:max-w-2xl lg:max-h-[90vh] overflow-y-auto bg-white">
         <DialogHeader>
           <DialogTitle>Create New Blog</DialogTitle>
           <DialogDescription>
@@ -98,9 +98,10 @@ export default function CreateBlogForm() {
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-6">
+
           {/* Title */}
           <div className="space-y-2">
-            <Label htmlFor="title">Title *</Label>
+            <Label htmlFor="title">Title<p className='text-red-500'>*</p></Label>
             <Input
               id="title"
               value={title}
@@ -112,17 +113,18 @@ export default function CreateBlogForm() {
 
           {/* Categories */}
           <div className="space-y-2">
-            <Label>Categories * (Select at least one)</Label>
+            <Label>Categories<p className='text-red-500'>*</p></Label>
+            <p className='mx-auto text-xs text-gray-500 mb-3 -mt-0.5'>Select at least one category</p>
             <div className="flex flex-wrap gap-2">
               {availableCategories.map((cat) => (
                 <Badge
                   key={cat}
                   variant={selectedCategories.includes(cat) ? 'default' : 'outline'}
-                  className="cursor-pointer"
+                  className={selectedCategories.includes(cat) ? 'bg-blue-600 text-white' : 'cursor-pointer border-gray-300 bg-gray-100 hover:bg-gray-200'}
                   onClick={() => toggleCategory(cat)}
                 >
                   {cat}
-                  {selectedCategories.includes(cat) && (
+                  {selectedCategories.includes(cat) && ( 
                     <X className="w-3 h-3 ml-1" />
                   )}
                 </Badge>
@@ -132,7 +134,7 @@ export default function CreateBlogForm() {
 
           {/* Description */}
           <div className="space-y-2">
-            <Label htmlFor="description">Description *</Label>
+            <Label htmlFor="description">Description<p className='text-red-500'>*</p></Label>
             <Textarea
               id="description"
               value={description}
@@ -160,7 +162,7 @@ export default function CreateBlogForm() {
 
           {/* Content */}
           <div className="space-y-2">
-            <Label htmlFor="content">Content *</Label>
+            <Label htmlFor="content">Content<p className='text-red-500'>*</p></Label>
             <Textarea
               id="content"
               value={content}
@@ -182,6 +184,7 @@ export default function CreateBlogForm() {
             </Button>
             <Button
               type="submit"
+              className='bg-blue-600 hover:bg-blue-700 text-white'
               disabled={createBlogMutation.isPending}
             >
               {createBlogMutation.isPending ? 'Creating...' : 'Create Blog'}

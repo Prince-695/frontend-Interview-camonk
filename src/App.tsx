@@ -2,12 +2,13 @@ import { useState } from 'react';
 import Navbar from './components/Navbar';
 import BlogList from './components/BlogList';
 import BlogDetail from './components/BlogDetail';
+import Footer from './components/Footer';
 
 const App = () => {
   const [selectedBlogId, setSelectedBlogId] = useState<string | null>('1');
 
   return (
-    <div className="h-screen flex flex-col bg-gray-50 overflow-x-hidden">
+    <div className="min-h-screen flex flex-col bg-gray-50">
       <Navbar />
       
       {/* Hero Section - Sticky */}
@@ -23,22 +24,24 @@ const App = () => {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 h-full">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 h-full">
-            {/* Left Panel - Blog List - Desktop only */}
-            <div className="hidden lg:flex lg:col-span-5 xl:col-span-4 flex-col min-h-0">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 flex-shrink-0">Latest Articles</h2>
-              <div className="flex-1 overflow-y-auto space-y-4 scrollbar-hide min-h-0">
-                <BlogList
-                  selectedBlogId={selectedBlogId}
-                  onSelectBlog={setSelectedBlogId}
-                />
+      <div className="flex-1">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            {/* Left Panel - Blog List - Desktop only - Sticky */}
+            <div className="hidden lg:block lg:col-span-5 xl:col-span-4 ">
+              <div className="sticky top-40">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Latest Articles</h2>
+                <div className="max-h-[calc(100vh-250px)] overflow-y-auto space-y-4 scrollbar-hide">
+                  <BlogList
+                    selectedBlogId={selectedBlogId}
+                    onSelectBlog={setSelectedBlogId}
+                  />
+                </div>
               </div>
             </div>
 
             {/* Right Panel - Blog Detail */}
-            <div className="lg:col-span-7 xl:col-span-8 min-h-0">
+            <div className="lg:col-span-7 xl:col-span-8">
               {selectedBlogId ? (
                 <div className="bg-white rounded-lg shadow-sm h-full overflow-y-auto scrollbar-hide">
                   <BlogDetail blogId={selectedBlogId} />
@@ -55,7 +58,7 @@ const App = () => {
                   </div>
                 </div>
               ) : (
-                <div className="bg-white rounded-lg shadow-sm p-12 text-center h-full flex flex-col items-center justify-center">
+                <div className="bg-white rounded-lg shadow-sm p-12 text-center">
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
                     Select a blog to read
                   </h3>
@@ -68,6 +71,9 @@ const App = () => {
           </div>
         </div>
       </div>
+
+      {/* Footer - At bottom of page */}
+      <Footer />
     </div>
   );
 };
